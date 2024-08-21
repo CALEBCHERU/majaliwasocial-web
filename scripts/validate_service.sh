@@ -1,30 +1,26 @@
 #!/bin/bash
 set -e
 
-LOGFILE=/tmp/validate_service.log
+# Check if the web server is running
+echo "Checking if the web server is running..."
+if systemctl is-active --quiet httpd; then
+    echo "Web server is running."
+else
+    echo "Web server is not running."
+    exit 1
+fi
 
-{
-    echo "Starting service validation..."
+# Check if the service is listening on the expected port
+echo "Checking if the service is listening on port 80..."
+if nc -zv localhost 80; then
+    echo "Service is listening on port 80."
+else
+    echo "Service is not listening on port 80."
+    exit 1
+fi
 
-    # Example validation commands
-    echo "Checking web server status..."
-    if systemctl is-active --quiet httpd; then
-        echo "Web server is running."
-    else
-        echo "Web server is not running."
-        exit 1
-    fi
+echo "Service validation completed successfully."
 
-    echo "Checking service on port 80..."
-    if nc -zv localhost 80; then
-        echo "Service is listening on port 80."
-    else
-        echo "Service is not listening on port 80."
-        exit 1
-    fi
-
-    echo "Service validation completed successfully."
-} >> $LOGFILE 2>&1
 
 
 # #!/bin/bash
