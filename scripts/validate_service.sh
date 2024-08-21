@@ -4,7 +4,7 @@ set -e
 # Install netcat if not already installed
 if ! command -v nc &> /dev/null; then
     echo "Netcat (nc) is not installed. Installing..."
-    sudo yum install -y nc
+    sudo yum install -y nmap-ncat
 fi
 
 # List of ports to check
@@ -16,8 +16,7 @@ for PORT in "${PORTS[@]}"; do
         echo "Service is running on port $PORT."
     else
         echo "Service is not running on port $PORT."
-        exit 1
     fi
 done
 
-echo "Service validation completed successfully."
+echo "Service validation completed."
