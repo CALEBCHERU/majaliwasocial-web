@@ -11,23 +11,23 @@ sudo yum install -y nodejs npm
 sudo yum install -y python3-pip
 
 # Ensure the deployment directories exist
-if [ ! -d "/home/ec2-user/majaliwasocialtest/frontend" ]; then
+if [ ! -d "/home/ec2-user/frontend" ]; then
   echo "Frontend directory does not exist!"
   exit 1
 fi
 
-if [ ! -d "/home/ec2-user/majaliwasocialtest/backend" ]; then
+if [ ! -d "/home/ec2-user/backend" ]; then
   echo "Backend directory does not exist!"
   exit 1
 fi
 
 # Navigate to frontend and install npm packages
-cd /home/ec2-user/majaliwasocialtest/frontend
+cd /home/ec2-user/frontend
 npm cache clean --force
 npm install
 
 # Navigate to backend and install Python packages
-cd /home/ec2-user/majaliwasocialtest/backend
+cd /home/ec2-user/backend
 if [ ! -f "requirements.txt" ]; then
   echo "requirements.txt not found!"
   exit 1
