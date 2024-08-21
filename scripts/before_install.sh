@@ -2,18 +2,34 @@
 
 # Stop the existing Node.js and Django services, if running
 sudo systemctl stop nginx
-sudo pkill -f node
-sudo pkill -f gunicorn
+sudo pkill -f node || true
+sudo pkill -f gunicorn || true
 
 # Install necessary dependencies (Node.js, npm, Python, pip)
 sudo yum update -y
 sudo yum install -y nodejs npm
 sudo yum install -y python3-pip
 
+# Ensure the deployment directories exist
+if [ ! -d "/home/ec2-user/majaliwasocialtest/frontend" ]; then
+  echo "Frontend directory does not exist!"
+  exit 1
+fi
+
+if [ ! -d "/home/ec2-user/majaliwasocialtest/backend" ]; then
+  echo "Backend directory does not exist!"
+  exit 1
+fi
+
 # Navigate to frontend and install npm packages
-cd /home/ec2-user/frontend
+cd /home/ec2-user/majaliwasocialtest/frontend
+npm cache clean --force
 npm install
 
 # Navigate to backend and install Python packages
-cd /home/ec2-user/backend
+cd /home/ec2-user/majaliwasocialtest/backend
+if [ ! -f "requirements.txt" ]; then
+  echo "requirements.txt not found!"
+  exit 1
+fi
 pip3 install -r requirements.txt
