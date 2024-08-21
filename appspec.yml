@@ -8,7 +8,7 @@ files:
     destination: /home/ec2-user/majaliwasocial/backend
 
   - source: scripts/
-    destination: /home/ec2-user/majaliwasocial/scripts
+    destination: /home/ec2-user/scripts
 
 hooks:
   BeforeInstall:
