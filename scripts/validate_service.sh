@@ -1,25 +1,21 @@
 #!/bin/bash
 set -e
 
-# Check if the web server is running
-echo "Checking if the web server is running..."
-if systemctl is-active --quiet httpd; then
-    echo "Web server is running."
-else
-    echo "Web server is not running."
-    exit 1
-fi
+# List of ports to check
+PORTS=(3000 80 443)  # Add or remove ports as needed
 
-# Check if the service is listening on the expected port
-echo "Checking if the service is listening on port 80..."
-if nc -zv localhost 80; then
-    echo "Service is listening on port 80."
-else
-    echo "Service is not listening on port 80."
-    exit 1
-fi
+for PORT in "${PORTS[@]}"; do
+    echo "Checking if a service is running on port $PORT..."
+    if nc -zv localhost $PORT; then
+        echo "Service is running on port $PORT."
+    else
+        echo "Service is not running on port $PORT."
+        exit 1
+    fi
+done
 
 echo "Service validation completed successfully."
+
 
 
 
