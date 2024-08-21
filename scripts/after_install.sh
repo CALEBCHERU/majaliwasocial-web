@@ -1,37 +1,37 @@
-#!/bin/bash
-set -e
+# #!/bin/bash
+# set -e
 
-# Log file path
-LOGFILE=/tmp/deployment.log
+# # Log file path
+# LOGFILE=/tmp/deployment.log
 
-# Update package list and install Node.js and npm
-{
-    echo "Updating packages and installing Node.js and npm..."
-    sudo yum update -y
-    curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
-    sudo yum install -y nodejs
-} >> $LOGFILE 2>&1
+# # Update package list and install Node.js and npm
+# {
+#     echo "Updating packages and installing Node.js and npm..."
+#     sudo yum update -y
+#     curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
+#     sudo yum install -y nodejs
+# } >> $LOGFILE 2>&1
 
-# Navigate to the frontend directory
-cd /frontend
+# # Navigate to the frontend directory
+# cd /frontend
 
-# Install frontend dependencies
-{
-    echo "Installing frontend dependencies..."
-    npm install
-} >> $LOGFILE 2>&1
+# # Install frontend dependencies
+# {
+#     echo "Installing frontend dependencies..."
+#     npm install
+# } >> $LOGFILE 2>&1
 
-# Build the frontend application
-{
-    echo "Building frontend application..."
-    npm run build
-} >> $LOGFILE 2>&1
+# # Build the frontend application
+# {
+#     echo "Building frontend application..."
+#     npm run build
+# } >> $LOGFILE 2>&1
 
-# Copy build artifacts to the web server directory
-{
-    echo "Deploying frontend build to web server directory..."
-    sudo cp -r build/* /var/www/html/
-} >> $LOGFILE 2>&1
+# # Copy build artifacts to the web server directory
+# {
+#     echo "Deploying frontend build to web server directory..."
+#     sudo cp -r build/* /var/www/html/
+# } >> $LOGFILE 2>&1
 
 # !/bin/bash
 # set -e
