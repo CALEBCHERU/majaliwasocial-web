@@ -2,17 +2,17 @@ version: 0.0
 os: linux
 files:
   - source: frontend/
-    destination: /home/ec2-user/majaliwasocial/frontend
+    destination: /home/ec2-user/majaliwasocialtest/frontend
 
   - source: backend/
-    destination: /home/ec2-user/majaliwasocial/backend
+    destination: /home/ec2-user/majaliwasocialtest/backend
 
   - source: scripts/
-    destination: /home/ec2-user/scripts
+    destination: /home/ec2-user/majaliwasocialtest/scripts
 
 hooks:
   BeforeInstall:
-    - location: /home/ec2-user/scripts/before_install.sh
+    - location: /home/ec2-user/majaliwasocialtest/scripts/before_install.sh
       timeout: 300
       runas: ec2-user
 
