@@ -1,0 +1,10 @@
+#mypage{
+    padding-top: 100px;
+    position: relative;
+}
+
+#profilebg{
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+}

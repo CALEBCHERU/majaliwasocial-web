@@ -1,0 +1,7 @@
+axios
+jwt-decode
+react
+react-dom
+react-router-dom
+react-scripts
+web-vitals

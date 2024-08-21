@@ -1,0 +1,44 @@
+.topbarContainer{
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+}
+
+nav{
+    text-align: center;
+    grid-row: auto;
+    row-gap: 5px;
+    /* flex-shrink:-1; */
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    font-size: 32px;
+    
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    opacity: 50%;
+}
+#topbaricon{
+    font-size: 32px;
+}
+#toplink{
+    font-size: 1.3rem;
+    gap: 10px;
+}
+#num{
+    /* right: 2ch; */
+    top:8px;
+    font-size: small;
+}
+
+#search{
+    border: 0px
+    ;
+}
+#search:focus{
+    border: 0px;
+   
+}

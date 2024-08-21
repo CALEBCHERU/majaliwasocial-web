@@ -1,0 +1,32 @@
+#rightbar{
+    position:sticky ;
+    top: 0px;
+    padding-top: 80px;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    /* padding: 50px; */
+    /* position: relative; */
+    /* top: 80px; */
+    /* max-height: 100vh; */
+}
+
+#gift{
+    font-size: 50px;
+    color: red;
+}
+#online{
+    position: relative;
+    top: -48px;
+    left: 34px;
+    background-color: rgb(3, 252, 244);
+    text-align: center;
+    border-radius: 500px;
+    border: 10px;
+    border-color: rgb(11, 11, 11);
+    width: 18px;
+    height:18px;
+}
+#nameonline{
+    align-items: baseline;
+}

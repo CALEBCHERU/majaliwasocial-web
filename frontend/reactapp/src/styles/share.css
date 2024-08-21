@@ -1,0 +1,27 @@
+#mind{
+    font-size: 28px;
+}
+#shareicons{
+    font-size: 23px;
+    
+}
+
+.icontext{
+    color: black;
+    font-style: normal;
+    padding-left: 5px;
+
+}
+/* #share{
+    box-shadow: 200px;
+} */
+
+#emoji{
+    color: rgb(255, 174, 0)
+}
+
+#sharebtn{
+    float: right;
+    margin: 5px;
+    color: black;
+}

@@ -1,0 +1,44 @@
+#post{
+    text-align: center;
+    align-items: baseline;
+    
+}
+
+#name{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+#lastseen{
+    font-size: 18px;
+    font-weight: bold;
+
+}
+p{
+    font-size: 25px;
+}
+#imagepost{
+    width: 100%;
+    object-fit: contain;
+    margin: 5px;
+    padding-right: 20px;
+
+}
+
+#posticontext{
+    font-size: 30px;
+    color: yellow;
+}
+i{
+    cursor: pointer;
+}
+#posticontext1{
+    font-size: 25px;
+    font-style: normal;
+    color: black;
+    padding: 5px;
+}
+
+#comments{
+    cursor: pointer;
+}
