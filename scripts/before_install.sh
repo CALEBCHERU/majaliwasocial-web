@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Stop the existing Node.js and Django services, if running
-sudo systemctl stop nginx
+sudo systemctl stop nginx || true
 sudo pkill -f node || true
 sudo pkill -f gunicorn || true
 
@@ -9,6 +9,10 @@ sudo pkill -f gunicorn || true
 sudo yum update -y
 sudo yum install -y nodejs npm
 sudo yum install -y python3-pip
+
+# Debug: List contents of the root project directory
+echo "Listing contents of /home/ec2-user"
+ls -la /home/ec2-user
 
 # Ensure the deployment directories exist
 if [ ! -d "/home/ec2-user/frontend" ]; then
