@@ -9,6 +9,6 @@ npm install -g serve
 serve -s build -l 3000 &
 
 # Start the Django server (or Gunicorn)
-cd /backend
-gunicorn --workers 3 --bind 0.0.0.0:8000 majaliwasocialtest.wsgi:application &
+# cd /backend
+# gunicorn --workers 3 --bind 0.0.0.0:8000 majaliwasocialtest.wsgi:application &
 
