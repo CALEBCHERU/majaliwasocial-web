@@ -11,33 +11,33 @@ sudo yum install -y nodejs npm
 sudo yum install -y python3-pip
 
 # Debug: List contents of the project directory and subdirectories
-echo "Listing contents of /home/ec2-user"
-ls -la /home/ec2-user
+echo "Listing contents of /home/ec2-user/majaliwasocialtest"
+ls -la /home/ec2-user/majaliwasocialtest
 
-echo "Listing contents of /home/ec2-user/frontend (if exists)"
-ls -la /home/ec2-user/frontend || echo "Frontend directory not found!"
+echo "Listing contents of /home/ec2-user/majaliwasocialtest/frontend (if exists)"
+ls -la /home/ec2-user/majaliwasocialtest/frontend || echo "Frontend directory not found!"
 
-echo "Listing contents of /home/ec2-user/backend (if exists)"
-ls -la /home/ec2-user/backend || echo "Backend directory not found!"
+echo "Listing contents of /home/ec2-user/majaliwasocialtest/backend (if exists)"
+ls -la /home/ec2-user/majaliwasocialtest/backend || echo "Backend directory not found!"
 
 # Ensure the deployment directories exist
-if [ ! -d "/home/ec2-user/frontend" ]; then
+if [ ! -d "/home/ec2-user/majaliwasocialtest/frontend" ]; then
   echo "Frontend directory does not exist!"
   exit 1
 fi
 
-if [ ! -d "/home/ec2-user/backend" ]; then
+if [ ! -d "/home/ec2-user/majaliwasocialtest/backend" ]; then
   echo "Backend directory does not exist!"
   exit 1
 fi
 
 # Navigate to frontend and install npm packages
-cd /home/ec2-user/frontend
+cd /home/ec2-user/majaliwasocialtest/frontend
 npm cache clean --force
 npm install
 
 # Navigate to backend and install Python packages
-cd /home/ec2-user/backend
+cd /home/ec2-user/majaliwasocialtest/backend
 if [ ! -f "requirements.txt" ]; then
   echo "requirements.txt not found!"
   exit 1
