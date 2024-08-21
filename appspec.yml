@@ -3,9 +3,11 @@ os: linux
 files:
   - source: frontend/
     destination: /frontend
-
-  - source: backend/
-    destination: /backend
+    
+  - source: /
+    destination: /var/www/html
+  # - source: backend/
+  #   destination: /backend
 
 hooks:
   BeforeInstall:
