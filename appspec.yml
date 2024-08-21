@@ -2,28 +2,28 @@ version: 0.0
 os: linux
 files:
   - source: frontend/
-    destination: /home/ec2-user/frontend
+    destination: /home/ec2-user/majaliwasocialtest/frontend
 
   - source: backend/
-    destination: /home/ec2-user/backend
+    destination: /home/ec2-user/majaliwasocialtest/backend
 
   - source: scripts/
-    destination: /home/ec2-user/scripts
+    destination: /home/ec2-user/majaliwasocialtest/scripts
 
 hooks:
   BeforeInstall:
-    - location: scripts/before_install.sh
+    - location: /home/ec2-user/majaliwasocialtest/scripts/before_install.sh
       timeout: 300
       runas: ec2-user
   AfterInstall:
-    - location: scripts/after_install.sh
+    - location: /home/ec2-user/majaliwasocialtest/scripts/after_install.sh
       timeout: 300
       runas: ec2-user
   ApplicationStart:
-    - location: scripts/start_server.sh
+    - location: /home/ec2-user/majaliwasocialtest/scripts/start_server.sh
       timeout: 300
       runas: ec2-user
   ValidateService:
-    - location: scripts/validate_service.sh
+    - location: /home/ec2-user/majaliwasocialtest/scripts/validate_service.sh
       timeout: 300
       runas: ec2-user
