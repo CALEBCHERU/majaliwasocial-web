@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
 
+# Install netcat if not already installed
+if ! command -v nc &> /dev/null; then
+    echo "Netcat (nc) is not installed. Installing..."
+    sudo yum install -y nc
+fi
+
 # List of ports to check
 PORTS=(3000 80 443)  # Add or remove ports as needed
 
@@ -15,24 +21,3 @@ for PORT in "${PORTS[@]}"; do
 done
 
 echo "Service validation completed successfully."
-
-
-
-
-# #!/bin/bash
-
-# # Check if the React app is running
-# curl -Is http://localhost:3000 | head -n 1 | grep 200
-# if [ $? -ne 0 ]; then
-#   echo "React app is not running on port 3000"
-#   exit 1
-# fi
-##################
-# Check if the Django app is running
-# curl -Is http://localhost:8000 | head -n 1 | grep 200
-# if [ $? -ne 0 ]; then
-#   echo "Django app is not running on port 8000"
-#   exit 1
-# fi
-
-echo "Both React and Django apps are running successfully."
