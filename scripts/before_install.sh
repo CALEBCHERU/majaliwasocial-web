@@ -10,9 +10,15 @@ sudo yum update -y
 sudo yum install -y nodejs npm
 sudo yum install -y python3-pip
 
-# Debug: List contents of the root project directory
+# Debug: List contents of the project directory and subdirectories
 echo "Listing contents of /home/ec2-user"
 ls -la /home/ec2-user
+
+echo "Listing contents of /home/ec2-user/frontend (if exists)"
+ls -la /home/ec2-user/frontend || echo "Frontend directory not found!"
+
+echo "Listing contents of /home/ec2-user/backend (if exists)"
+ls -la /home/ec2-user/backend || echo "Backend directory not found!"
 
 # Ensure the deployment directories exist
 if [ ! -d "/home/ec2-user/frontend" ]; then
