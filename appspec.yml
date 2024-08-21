@@ -7,8 +7,6 @@ files:
   - source: backend/
     destination: /home/ec2-user/backend
 
-  - source: scripts/
-    destination: /home/ec2-user/scripts
 
 hooks:
   BeforeInstall:
